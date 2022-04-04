@@ -1,0 +1,1 @@
+powershell.exe -executionpolicy bypass -nologo -file "C:\Backup_the_Backups\WindowsBackupChecker\WindowsBackupChecker.ps1"

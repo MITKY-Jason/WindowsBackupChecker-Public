@@ -1,0 +1,75 @@
+<style>
+
+    h1 {
+        font-family: "Segoe UI", Helvetica, sans-serif;
+        color: #e68a00;
+        font-size: 28px;
+    }
+
+    
+    h2 {
+        font-family: "Segoe UI", Helvetica, sans-serif;
+        color: #000099;
+        font-size: 16px;
+    }
+    
+   table {
+		font-size: 12px;
+		border: 0px; 
+		font-family: "Segoe UI", Helvetica, sans-serif;
+	} 
+	
+    td {
+		padding: 4px;
+		margin: 0px;
+		border: 0;
+	}
+	
+    th {
+        background: #395870;
+        background: linear-gradient(#49708f, #293f50);
+        color: #fff;
+        font-size: 11px;
+        text-transform: uppercase;
+        padding: 10px 15px;
+        vertical-align: middle;
+	}
+
+    tbody tr:nth-child(even) {
+        background: #f0f0f2;
+    }
+    
+    #CreationDate {
+        font-family: "Segoe UI", Helvetica, sans-serif;
+        color: #ff3300;
+        font-size: 12px;
+    }
+
+    #Text {
+        font-family: "Segoe UI", Helvetica, sans-serif;
+        font-size: 12px;
+    }
+
+    #ErrorText {
+        font-family: "Segoe UI", Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        color: #d40000;
+    }
+
+    #GoodText {
+        font-family: "Segoe UI", Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        color: #10ad10;
+    }
+
+    .StopStatus {
+        color: #ff0000;
+    }
+  
+    .RunningStatus {
+        color: #008000;
+    }
+
+</style>

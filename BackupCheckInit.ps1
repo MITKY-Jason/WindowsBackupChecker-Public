@@ -2,8 +2,8 @@
 
 # Expected hash of main script file. This must be updated manually after an update.
 
-$currentScriptHash = ""
-$currentStyleHash = ""
+$currentScriptHash = "1A2471E5941D5A1366402F95C483FDAEFB9EA3BAFCD5FA268A1C23C67D4E606D"
+$currentStyleHash = "B16B3C1797FEF794FEEC62EDF89BC25FC072E72C11B54FDEF6D111EA5744122B"
 
 # DO NOT EDIT BELOW THIS LINE
 # DO NOT EDIT BELOW THIS LINE

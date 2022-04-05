@@ -22,10 +22,8 @@
 
 # Download the main script file and wait a few seconds.
 
-# Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/WindowsBackupChecker.ps1 -outfile C:\Backup_the_backups\WindowsBackupChecker\WindowsBackupChecker.ps1
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/WindowsBackupChecker.ps1 -outfile C:\Backup_the_backups\WindowsBackupChecker\WindowsBackupChecker.ps1
 # Test File will output a message only.
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/TestScript.ps1 -outfile C:\Backup_the_backups\WindowsBackupChecker\TestScript.ps1
-Write-Host "The script downloaded!"
 
 # Hash the downloaded file, then compare it to the expected hash listed above.
 # If it matches, run the script. If not, report an error and prompt to try again.

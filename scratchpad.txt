@@ -1,0 +1,33 @@
+if (!(Test-Path "$env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\"))
+{
+	New-Item -path "$env:HOMEPATH\APPDATA\Local\Temp\" -Name "WindowsBackupChecker" -ItemType "directory"
+	Write-Host "Created temp folder"
+}
+else {Write-Host "Temp folder already exists"}
+
+
+
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/WindowsBackupChecker.ps1 -outfile C:\Users\jfarris\AppData\Local\Temp\WindowsBackupChecker\WindowsBackupChecker.ps1
+
+$scriptHashResult = Get-FileHash C:\Backup_the_backups\WindowsBackupChecker\WindowsBackupChecker.ps1 -Algorithm SHA256
+$scriptHash = $scriptHashResult.Hash
+
+
+$newScriptHashResult = Get-FileHash $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\WindowsBackupChecker.ps1 -Algorithm SHA256
+$newScriptHash = $newScriptHashResult.Hash
+
+$newStyleHashResult = Get-FileHash $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\style.css -Algorithm SHA256
+$newStyleHash = $newStyleHashResult.Hash
+
+
+
+$scriptHashResult = Get-FileHash C:\Users\jfarris\OneDrive\Documents\GitHub\WindowsBackupChecker-Public\WindowsBackupChecker.ps1 -Algorithm SHA256
+$styleHashResult = Get-FileHash C:\Users\jfarris\OneDrive\Documents\GitHub\WindowsBackupChecker-Public\style.css -Algorithm SHA256
+
+
+1A2471E5941D5A1366402F95C483FDAEFB9EA3BAFCD5FA268A1C23C67D4E606D
+B16B3C1797FEF794FEEC62EDF89BC25FC072E72C11B54FDEF6D111EA5744122B
+
+
+Move-Item -path $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\WindowsBackupChecker.ps1 -destination C:\Backup_the_backups\WindowsBackupChecker\WindowsBackupChecker.ps1
+Move-Item -path $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\style.css -destination C:\Backup_the_backups\WindowsBackupChecker\style.css

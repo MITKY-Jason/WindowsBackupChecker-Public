@@ -43,7 +43,7 @@ Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBack
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/style.css -outfile $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\style.css
 
 # Hash the downloaded files, then compare them to the expected hashes listed above.
-# If they match, run the script. If not, report an error and prompt to check the expected hashes.
+# If they match, copy the files to the Backup_the_backups folder. If not, report an error and prompt to check the expected hashes.
 
 $newScriptHashResult = Get-FileHash $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\WindowsBackupChecker.ps1 -Algorithm SHA256
 $newScriptHash = $newScriptHashResult.Hash
@@ -56,7 +56,14 @@ if (($newScriptHash -ne $currentScriptHash) -or ($newStyleHash -ne $currentStyle
     Exit
 } 
 else {
-    . C:\Backup_the_backups\WindowsBackupChecker\WindowsBackupChecker.ps1
-    Write-Host "DONE!"
-    Exit 
+    # COPY FILES TO BACKUP_THE_BACKUPS FOLDER
+    Move-Item -path $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\WindowsBackupChecker.ps1 -destination C:\Backup_the_backups\WindowsBackupChecker\WindowsBackupChecker.ps1 -Force
+    Move-Item -path $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\style.css -destination C:\Backup_the_backups\WindowsBackupChecker\style.css -Force
+
 }
+
+# Scripts have updated and hashes match, so run the script
+
+. C:\Backup_the_backups\WindowsBackupChecker\WindowsBackupChecker.ps1
+Write-Host "DONE!"
+Exit 

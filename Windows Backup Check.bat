@@ -1,1 +1,1 @@
-powershell.exe -executionpolicy bypass -nologo -file "C:\Backup_the_Backups\WindowsBackupChecker\BackupCheckInit-MinVP.ps1"
+powershell.exe -executionpolicy bypass -nologo -file "C:\Backup_the_Backups\WindowsBackupChecker\BackupCheckInit.ps1"

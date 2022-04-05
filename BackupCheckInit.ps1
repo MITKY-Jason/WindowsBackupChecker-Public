@@ -1,77 +1,62 @@
+# THIS FILE MUST BE UPDATED MANUALLY. DO NOT UPDATE DIRECTLY FROM GITHUB!
+
 # Expected hash of main script file. This must be updated manually after an update.
 
-
-
+$currentScriptHash = ""
+$currentStyleHash = ""
 
 # DO NOT EDIT BELOW THIS LINE
 # DO NOT EDIT BELOW THIS LINE
 # DO NOT EDIT BELOW THIS LINE
 
-# Variables
+# Hash the main script file and style.css file and compare them to the expected hash listed above.
+# If they match, simply run the script and nothing else.
+# If they do not match, prompt the user to update the script.
 
-$updateNeeded = ""
+$scriptHashResult = Get-FileHash C:\Backup_the_backups\WindowsBackupChecker\WindowsBackupChecker.ps1 -Algorithm SHA256
+$scriptHash = $scriptHashResult.Hash
 
+$styleHashResult = Get-FileHash C:\Backup_the_backups\WindowsBackupChecker\style.css -Algorithm SHA256
+$styleHash = $styleHashResult.Hash
 
-
-
-
-# Functions
-
-function scriptDownload { 
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/WindowsBackupChecker.ps1 -outfile C:\Backup_the_backups\WindowsBackupChecker\WindowsBackupChecker.ps1
+if (($scriptHash -ne $currentScriptHash) -or ($styleHash -ne $currentStyleHash)) {
+    # do nothing - move on without running script
+} 
+else {
+    . C:\Backup_the_backups\WindowsBackupChecker\WindowsBackupChecker.ps1
+    Write-Host "DONE!"
+    Exit 
 }
 
+# Test that the temp folder exists and create it if necessary.
 
-function generateHash {
-    param (
-        OptionalParameters
-    )
-    
+if (!(Test-Path "$env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\"))
+{
+	New-Item -path "$env:HOMEPATH\APPDATA\Local\Temp\" -Name "WindowsBackupChecker" -ItemType "directory"
+	Write-Host "Created temp folder"
 }
-
-function compareHash {
-    param (
-        OptionalParameters
-    )
-    
-}
-
-
-function scriptRun {
-    param (
-        OptionalParameters
-    )
-    
-}
-
-
-# Hash the main script file and compare it to the expected hash listed above.
-# If it matches, simply run the script and nothing else.
-# If it does not match, prompt the user to update the script.
-
-generateHash
-
-compareHash
-
-
-
-
-# Switch the update flag and move on to the next section.
-# Rename the main script file.
-
-
-
+else {Write-Host "Temp folder already exists"}
 
 # Download the main script file and wait a few seconds.
-scriptDownload
 
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/WindowsBackupChecker.ps1 -outfile $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\WindowsBackupChecker.ps1
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/style.css -outfile $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\style.css
 
+# Hash the downloaded files, then compare them to the expected hashes listed above.
+# If they match, run the script. If not, report an error and prompt to check the expected hashes.
 
+$newScriptHashResult = Get-FileHash $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\WindowsBackupChecker.ps1 -Algorithm SHA256
+$newScriptHash = $newScriptHashResult.Hash
 
-# Hash the downloaded file, then compare it to the expected hash listed above.
-# If it matches, run the script. If not, report an error and prompt to try again.
+$newStyleHashResult = Get-FileHash $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\style.css -Algorithm SHA256
+$newStyleHash = $newStyleHashResult.Hash
 
-compareHash
-
-scriptRun
-
+if (($newScriptHash -ne $currentScriptHash) -or ($newStyleHash -ne $currentStyleHash)) {
+    Write-Error "File may be compromised! Hashes do not match! Check that the current hash variable in this script is the correct version."
+    Exit
+} 
+else {
+    . C:\Backup_the_backups\WindowsBackupChecker\WindowsBackupChecker.ps1
+    Write-Host "DONE!"
+    Exit 
+}

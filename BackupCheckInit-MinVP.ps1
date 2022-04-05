@@ -1,5 +1,6 @@
 # Expected hash of main script file. This must be updated manually after an update.
 
+$currentHash = ""
 
 # DO NOT EDIT BELOW THIS LINE
 # DO NOT EDIT BELOW THIS LINE

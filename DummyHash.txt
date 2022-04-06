@@ -1,0 +1,7 @@
+This is a hash of DummyScript.ps1, and another hash of a string (the text of this file), to test with incorrect hashes.
+
+Text Hash:
+AC5FF3DF318889CAC0ECCE7AE89335693122289E80C52C0DF3BD2F72D63C9BF1
+
+DummyScript.ps1 Hash:
+6A4523D6EB43541696473604BA6323DA7C8D696DBE5463BC75D1639BDD4AA55A

@@ -1,6 +1,8 @@
 # Server-specific variables are imported from the config file
 . C:\Backup_the_Backups\WindowsBackupChecker\config.ps1
 
+# Test comment to change the file hash
+
 # DO NOT EDIT BELOW THIS LINE
 # DO NOT EDIT BELOW THIS LINE
 # DO NOT EDIT BELOW THIS LINE

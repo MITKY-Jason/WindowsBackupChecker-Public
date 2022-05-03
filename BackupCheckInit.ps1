@@ -39,6 +39,7 @@ else {Write-Host "Temp folder already exists"}
 
 # Download the main script file and wait a few seconds.
 
+[Net.ServicePointManager]::SecurityProtocol = "tls12, tls11"
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/WindowsBackupChecker.ps1 -outfile $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\WindowsBackupChecker.ps1
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/style.css -outfile $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\style.css
 

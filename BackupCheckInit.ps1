@@ -33,9 +33,9 @@ $currentStyleHash = $styleHashResult.Hash
 if (!(Test-Path "$env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\"))
 {
 	New-Item -path "$env:HOMEPATH\APPDATA\Local\Temp\" -Name "WindowsBackupChecker" -ItemType "directory"
-	Write-Host "Created temp folder"
+	Write-Host "Created temp folder."
 }
-else {Write-Host "Temp folder already exists"}
+else {Write-Host "Temp folder already exists."}
 
 # Download the main script file and wait a few seconds.
 
@@ -44,7 +44,7 @@ Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBack
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/style.css -outfile $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\style.css
 
 Write-Host "Checking for updates..."
-Start-Sleep 10
+Start-Sleep 5
 
 # Hash the downloaded files, then compare them to the expected hashes listed above.
 # If they match, copy the files to the Backup_the_backups folder. If not, report an error and prompt to check the expected hashes.

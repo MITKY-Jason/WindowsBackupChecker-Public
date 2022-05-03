@@ -43,7 +43,7 @@ else {Write-Host "Temp folder already exists"}
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/WindowsBackupChecker.ps1 -outfile $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\WindowsBackupChecker.ps1
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/MITKY-Jason/WindowsBackupChecker-Public/main/style.css -outfile $env:HOMEPATH\APPDATA\Local\Temp\WindowsBackupChecker\style.css
 
-Write-Host "Waiting for downloads..."
+Write-Host "Checking for updates..."
 Start-Sleep 10
 
 # Hash the downloaded files, then compare them to the expected hashes listed above.

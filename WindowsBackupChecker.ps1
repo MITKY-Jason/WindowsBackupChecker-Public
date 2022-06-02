@@ -10,7 +10,7 @@ elseif (Test-Path "C:\Backup the Backups\WindowsBackupChecker\config.ps1")
 }
 else {Write-Host "No config file found! Reports will look terrible!"}
 
-Write-Host "Scripts are stored in " $scriptDir "\"
+Write-Host "Scripts are stored in " $scriptDir
 . $scriptDir\WindowsBackupChecker\config.ps1
 
 

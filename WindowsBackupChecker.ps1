@@ -1,19 +1,18 @@
 # Server-specific variables are imported from the config file
 # Some servers have slightly different paths to our scripts
-if (!(Test-Path "C:\Backup_the_Backups\WindowsBackupChecker\config.ps1"))
+if (Test-Path "C:\Backup_the_Backups\WindowsBackupChecker\config.ps1")
 {
-	. C:\Backup_the_Backups\WindowsBackupChecker\config.ps1
+    $scriptDir = "C:\Backup_the_backups"
     Write-Host "Backup_the_backups worked!"
 }
-elseif (!(Test-Path "C:\Backup the Backups\WindowsBackupChecker\config.ps1"))
+elseif (Test-Path "C:\Backup the Backups\WindowsBackupChecker\config.ps1")
 {
-	. "C:\Backup the Backups\WindowsBackupChecker\config.ps1"
+    $scriptDir = "C:\Backup the backups"
     Write-Host "Backup the backups worked!"
 }
 else {Write-Host "No config file found! Reports will look terrible!"}
 
-
-. C:\Backup_the_Backups\WindowsBackupChecker\config.ps1
+. $scriptDir\WindowsBackupChecker\config.ps1
 
 
 # DO NOT EDIT BELOW THIS LINE

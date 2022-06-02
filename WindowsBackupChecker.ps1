@@ -3,15 +3,14 @@
 if (Test-Path "C:\Backup_the_Backups\WindowsBackupChecker\config.ps1")
 {
     $scriptDir = "C:\Backup_the_backups"
-    Write-Host "Backup_the_backups worked!"
 }
 elseif (Test-Path "C:\Backup the Backups\WindowsBackupChecker\config.ps1")
 {
     $scriptDir = "C:\Backup the backups"
-    Write-Host "Backup the backups worked!"
 }
 else {Write-Host "No config file found! Reports will look terrible!"}
 
+Write-Host "Scripts are stored in " $scriptDir
 . $scriptDir\WindowsBackupChecker\config.ps1
 
 

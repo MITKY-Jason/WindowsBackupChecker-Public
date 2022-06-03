@@ -1,11 +1,14 @@
-# DO NOT UPDATE THIS FILE FROM GITHUB! IT IS STORED THERE AS A TEMPLATE 
-# ONLY AND MUST BE UPDATED FOR EACH SERVER INDIVIDUALLY.
+# DO NOT UPDATE THIS FILE FROM GITHUB! IT IS STORED THERE AS A TEMPLATE ONLY
+# AND MUST BE UPDATED FOR EACH SERVER INDIVIDUALLY.
 
 # Test Variable
 $testVar = "Test Successful"
 
+# Where do scripts live
+$scriptDir = "C:\Backup_the_Backups"
+
 # Miscellaneous Variables
-$header = get-content "C:\Backup_the_Backups\WindowsBackupChecker\style.css"
+$header = get-content $scriptDir\WindowsBackupChecker\style.css
 $serverName = $env:COMPUTERNAME
 [array] $vmList = (Get-WBVirtualMachine).VMName
 

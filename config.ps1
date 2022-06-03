@@ -5,7 +5,7 @@
 $testVar = "Test Successful"
 
 # Where do scripts live
-$scriptDir = "C:\Backup_the_Backups"
+$scriptDir = "C:\Backup the Backups"
 
 # Miscellaneous Variables
 $header = get-content $scriptDir\WindowsBackupChecker\style.css
